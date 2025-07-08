@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub  Info Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1520052205864-92d242b3a76b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnwxNjQ3ODE4fHxlbnwwfHx8fHw%3D');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #b926a0;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 320px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      animation: glow 5s linear infinite;
+      color: white;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffff, #ffcc00, #ff00cc);
+      background-size: 400% 400%;
+      animation: glowing-border 8s ease infinite;
+      filter: blur(10px);
+      border-radius: 20px;
+    }
+
+    @keyframes glowing-border {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-content {
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid white;
+    }
+
+    .card a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 400px) {
+      .card {
+        width: 90%;
+      }
+
+      input[type="text"] {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <input type="text" id="inputName" placeholder="Search GitHub username">
+    <button id="searchButton">Find GitHub User</button>
+  </div>
+
+  <div id="userCardContainer"></div>
+
+  <script src="apps.js" defer></script>
+</body>
+</html>
